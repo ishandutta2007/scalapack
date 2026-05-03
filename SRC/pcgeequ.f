@@ -337,9 +337,9 @@
          RCMIN = MIN( RCMIN, C( J ) )
          RCMAX = MAX( RCMAX, C( J ) )
   100 CONTINUE
-      CALL SGAMX2D( ICTXT, 'Columnwise', COLCTOP, 1, 1, RCMAX, 1, IDUMM,
+      CALL SGAMX2D( ICTXT, 'Rowwise', ROWCTOP, 1, 1, RCMAX, 1, IDUMM,
      $              IDUMM, -1, -1, MYCOL )
-      CALL SGAMN2D( ICTXT, 'Columnwise', COLCTOP, 1, 1, RCMIN, 1, IDUMM,
+      CALL SGAMN2D( ICTXT, 'Rowwise', ROWCTOP, 1, 1, RCMIN, 1, IDUMM,
      $              IDUMM, -1, -1, MYCOL )
 *
       IF( RCMIN.EQ.ZERO ) THEN
@@ -351,7 +351,7 @@
      $         INFO = M + INDXL2G( J, DESCA( NB_ ), MYCOL,
      $                DESCA( CSRC_ ), NPCOL ) - JA + 1
   110    CONTINUE
-         CALL IGAMX2D( ICTXT, 'Columnwise', COLCTOP, 1, 1, INFO, 1,
+         CALL IGAMX2D( ICTXT, 'Rowwise', ROWCTOP, 1, 1, INFO, 1,
      $                 IDUMM, IDUMM, -1, -1, MYCOL )
          IF( INFO.NE.0 )
      $      RETURN
