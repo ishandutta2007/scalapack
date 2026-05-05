@@ -393,7 +393,7 @@
                      END IF
                      IF( MYROW.EQ.ICROW1 )
      $                  CALL DAXPY( NQC2, ONE, C( IOFFC1 ), LDC,
-     $                              WORK( IPW ), MAX( 1, NQC2 ) )
+     $                              WORK( IPW ), 1 )
 *
                      CALL DGSUM2D( ICTXT, 'Columnwise', ' ', NQC2, 1,
      $                             WORK( IPW ), MAX( 1, NQC2 ), RDEST,
@@ -403,7 +403,7 @@
 *
                      IF( MYROW.EQ.ICROW1 )
      $                  CALL DAXPY( NQC2, -TAULOC( 1 ), WORK( IPW ),
-     $                              MAX( 1, NQC2 ), C( IOFFC1 ), LDC )
+     $                              1, C( IOFFC1 ), LDC )
                      CALL DGER( MPV, NQC2, -TAULOC( 1 ), WORK, 1,
      $                          WORK( IPW ), 1, C( IOFFC2 ), LDC )
                   END IF
@@ -436,7 +436,7 @@
                         END IF
                         IF( MYROW.EQ.ICROW1 )
      $                     CALL DAXPY( NQC2, ONE, C( IOFFC1 ), LDC,
-     $                                 WORK, MAX( 1, NQC2 ) )
+     $                                 WORK, 1 )
 *
                         CALL DGSUM2D( ICTXT, 'Columnwise', ' ', NQC2, 1,
      $                                WORK, MAX( 1, NQC2 ), RDEST,
@@ -446,7 +446,7 @@
 *
                         IF( MYROW.EQ.ICROW1 )
      $                     CALL DAXPY( NQC2, -TAULOC( 1 ), WORK,
-     $                                 MAX( 1, NQC2 ), C( IOFFC1 ),
+     $                                 1, C( IOFFC1 ),
      $                                 LDC )
                         CALL DGER( MPV, NQC2, -TAULOC( 1 ), V( IOFFV ),
      $                             1, WORK, 1, C( IOFFC2 ), LDC )
@@ -487,7 +487,7 @@
                         END IF
                         IF( MYROW.EQ.ICROW1 )
      $                     CALL DAXPY( NQC2, ONE, C( IOFFC1 ), LDC,
-     $                                 WORK( IPW ), MAX( 1, NQC2 ) )
+     $                                 WORK( IPW ), 1 )
 *
                         CALL DGSUM2D( ICTXT, 'Columnwise', ' ', NQC2, 1,
      $                                WORK( IPW ), MAX( 1, NQC2 ),
@@ -497,7 +497,7 @@
 *
                         IF( MYROW.EQ.ICROW1 )
      $                     CALL DAXPY( NQC2, -TAULOC( 1 ), WORK( IPW ),
-     $                                 MAX( 1, NQC2 ), C( IOFFC1 ),
+     $                                 1, C( IOFFC1 ),
      $                                 LDC )
                         CALL DGER( MPV, NQC2, -TAULOC( 1 ), WORK, 1,
      $                             WORK( IPW ), 1, C( IOFFC2 ), LDC )
@@ -553,7 +553,7 @@
                   END IF
                   IF( MYROW.EQ.ICROW1 )
      $               CALL DAXPY( NQC2, ONE, C( IOFFC1 ), LDC,
-     $                           WORK( IPW ), MAX( 1, NQC2 ) )
+     $                           WORK( IPW ), 1 )
 *
                   CALL DGSUM2D( ICTXT, 'Columnwise', ' ', NQC2, 1,
      $                          WORK( IPW ), MAX( 1, NQC2 ), RDEST,
@@ -563,7 +563,7 @@
 *
                   IF( MYROW.EQ.ICROW1 )
      $               CALL DAXPY( NQC2, -TAULOC( 1 ), WORK( IPW ),
-     $                           MAX( 1, NQC2 ), C( IOFFC1 ), LDC )
+     $                           1, C( IOFFC1 ), LDC )
                   CALL DGER( MPV, NQC2, -TAULOC( 1 ), WORK, 1,
      $                       WORK( IPW ), 1, C( IOFFC2 ), LDC )
                END IF
@@ -605,7 +605,7 @@
                   END IF
                   IF( MYROW.EQ.ICROW1 )
      $               CALL DAXPY( NQC2, ONE, C( IOFFC1 ), LDC,
-     $                           WORK( IPW ), MAX( 1, NQC2 ) )
+     $                           WORK( IPW ), 1 )
 *
                   CALL DGSUM2D( ICTXT, 'Columnwise', ' ', NQC2, 1,
      $                          WORK( IPW ), MAX( 1, NQC2 ), RDEST,
@@ -615,7 +615,7 @@
 *
                   IF( MYROW.EQ.ICROW1 )
      $               CALL DAXPY( NQC2, -TAULOC( 1 ), WORK( IPW ),
-     $                           MAX( 1, NQC2 ), C( IOFFC1 ), LDC )
+     $                           1, C( IOFFC1 ), LDC )
                   CALL DGER( MPV, NQC2, -TAULOC( 1 ), WORK, 1,
      $                       WORK( IPW ), 1, C( IOFFC2 ), LDC )
                END IF
