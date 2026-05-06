@@ -455,8 +455,8 @@
      $                 WORK( IPW ) )
    10 CONTINUE
 *
-      IF( ( LEFT .AND. .NOT.NOTRAN ) .OR.
-     $    ( .NOT.LEFT .AND. NOTRAN ) ) THEN
+      IF( ( LEFT .AND. NOTRAN ) .OR.
+     $    ( .NOT.LEFT .AND. .NOT.NOTRAN ) ) THEN
          IB = I2 - IA
          IF( LEFT ) THEN
             MI = M
