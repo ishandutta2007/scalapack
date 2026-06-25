@@ -117,6 +117,11 @@ PCBLAS = $(PCBLAS1) $(PCBLAS2) $(PCBLAS3) $(APPBLAS)
 PDBLAS = $(PDBLAS1) $(PDBLAS2) $(PDBLAS3) $(APPBLAS)
 PZBLAS = $(PZBLAS1) $(PZBLAS2) $(PZBLAS3) $(APPBLAS)
 
+single:    integer
+double:    single
+complex:   double
+complex16: complex
+
 integer: $(PIBLAS)
 	$(ARCH) $(ARCHFLAGS) ../../$(SCALAPACKLIB) $(PIBLAS)
 	$(RANLIB) ../../$(SCALAPACKLIB)

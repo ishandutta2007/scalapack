@@ -48,35 +48,32 @@ ZTOOLS = zzdotu.o     zzdotc.o     zlatcpy.o    zmatadd.o     pzmatadd.o \
 
 all: single double complex complex16
 
-slapackaux:
-	( cd LAPACK; $(MAKE) single )
-
-dlapackaux:
-	( cd LAPACK; $(MAKE) double )
-
-clapackaux:
-	( cd LAPACK; $(MAKE) complex )
-
-zlapackaux:
-	( cd LAPACK; $(MAKE) complex16 )
+single:    integer
+double:    single
+complex:   double
+complex16: complex
 
 integer: $(ATOOLS) $(ITOOLS)
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(ATOOLS) $(ITOOLS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 
-single: slapackaux integer $(STOOLS)
+single: integer $(STOOLS)
+	( cd LAPACK; $(MAKE) single )
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(STOOLS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 
-double: dlapackaux integer $(DTOOLS)
+double: integer $(DTOOLS)
+	( cd LAPACK; $(MAKE) double )
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(DTOOLS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 
-complex: clapackaux integer $(CTOOLS)
+complex: integer $(CTOOLS)
+	( cd LAPACK; $(MAKE) complex )
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(CTOOLS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 
-complex16: zlapackaux integer $(ZTOOLS)
+complex16: integer $(ZTOOLS)
+	( cd LAPACK; $(MAKE) complex16 )
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(ZTOOLS)
 	$(RANLIB) ../$(SCALAPACKLIB)
 
