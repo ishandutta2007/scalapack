@@ -192,6 +192,10 @@ ZLASRC = \
 
 all: single complex double complex16
 
+complex:   single
+double:    complex
+complex16: double
+
 single: $(SLASRC) $(SCLAUX) $(ALLAUX)
 	$(ARCH) $(ARCHFLAGS) ../$(SCALAPACKLIB) $(SLASRC) $(SCLAUX) \
 	$(ALLAUX)

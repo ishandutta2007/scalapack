@@ -52,7 +52,13 @@ all: lib exe example
 SCALAPACKLIBS=toolslib pblaslib redistlib scalapacklib
 
 $(SCALAPACKLIBS): blacslib
+pblaslib:     toolslib
+redistlib:    pblaslib
+scalapacklib: redistlib
 lib: $(SCALAPACKLIBS)
+
+blacsexe pblasexe redistexe scalapackexe: lib
+example: lib
 
 exe: blacsexe pblasexe redistexe scalapackexe
 

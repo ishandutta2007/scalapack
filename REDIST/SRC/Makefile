@@ -62,6 +62,11 @@ all: integer single complex double complex16
 
 lib: all
 
+single:    integer
+complex:   single
+double:    complex
+complex16: double
+
 integer: $(IMRSRC) $(ALLAUX)
 	$(ARCH) $(ARCHFLAGS) ../../$(SCALAPACKLIB) $(IMRSRC) $(ALLAUX)
 	$(RANLIB) ../../$(SCALAPACKLIB)
